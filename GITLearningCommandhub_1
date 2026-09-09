@@ -1,0 +1,111 @@
+Version check 
+_______________
+git --version
+
+Command help 
+_____________
+Git --help
+
+Set Git Configuration 
+______________________
+@bineetdungdung ➜ /workspaces $ git config --global user.name "Bineet Dungdung"
+@bineetdungdung ➜ /workspaces $ git config --global user.email "bineet .dungdung@gmail.com"
+
+check the Git Configuration 
+____________________________
+@bineetdungdung ➜ /workspaces $ git config --list 
+
+Change Directory 
+_________________
+@bineetdungdung ➜ /workspaces $ cd /workspaces/stack-overflown
+@bineetdungdung ➜ /workspaces/stack-overflown $ 
+
+Initialize a repository 
+This was done on the particular folder 
+_______________________________________
+@bineetdungdung ➜ /workspaces/stack-overflown $ git init
+Initialized empty Git repository in /workspaces/stack-overflown/.git/
+
+Check current git status
+__________________________
+bineetdungdung ➜ /workspaces/stack-overflown (main) $ git status
+On branch main
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        src/
+
+
+Add index to only all files to be commited from the repository or from the folder 
+_________________________________________________________________________________
+bineetdungdung ➜ /workspaces/stack-overflown (main) $ git add src/*
+
+Note : If git status shows the wrong files, you can remove them from staging with git restore --staged <filename>
+
+
+Check Commit History 
+___________________
+@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git log
+
+@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git log --oneline
+f310945 (HEAD -> main) Start Developer Docs
+a5aa433 start Game documentation
+b807a3f initial Commit
+
+Switch to a Particular commit id or undo a commit 
+________________________________
+@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git checkout b807a3f
+Note: switching to 'b807a3f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at b807a3f initial Commit
+Git Hook: Post Checkout
+
++ This is a line that was added
+- This is a line that was removed
+
+View the difference between your working directory and the last commit.
+
+@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git diff src/index.html
+diff --git a/src/index.html b/src/index.html
+index c89edb8..70992da 100644
+--- a/src/index.html
++++ b/src/index.html
+@@ -17,11 +17,12 @@
+       </div>
+ 
+       <div class="side-panel">
+-        <div class="info-section">
+-          <h3>Score</h3>
+-          <div class="score" id="score">0</div>
+-          <div class="status" id="status">Playing...</div>
+-        </div>
++       <div class="info-section">
++         <h3>Current Score</h3>
++        <div class="score" id="score">0</div>
++        <h3>High Score</h3>
++        <div class="high-score" id="high-score">0</div>
++     </div>
+
+
+
+
+
+
+
