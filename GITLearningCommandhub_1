@@ -1,63 +1,93 @@
-Version check 
-_______________
-git --version
+Learning paths 
 
-Command help 
-_____________
-Git --help
+Gh-900
+Gh-100 Github Adminstrations 
+Gh-200 GH Devops Actions 
+Gh-300 Productivity Tool - Gh Copilot 
+Gh-500 Gh Advanced Security 
+Gh-600 Gh Agentic Ai 
+Gh-900 Gh Advanced high level security
 
-Set Git Configuration 
-______________________
-@bineetdungdung ➜ /workspaces $ git config --global user.name "Bineet Dungdung"
-@bineetdungdung ➜ /workspaces $ git config --global user.email "bineet .dungdung@gmail.com"
 
-check the Git Configuration 
+Primary feature 
+
+
+
+Version control 
+
+
+
+Step 1 
+
+Install Git
+
+https://git-scm.com/install/windows
+
+Powershell 
+
+winget install --id Git.Git -e --source winget
+
+
+If Powershell not available install Powershell ISE using this PS command on PS 
+
+PS C:\WINDOWS\system32> winget search --id Microsoft.PowerShell --exact
+
+
+
+Step 1: Introduction to Git Version Control
+
+Commands
+
+git --version   #Check version#
+
+
+Config 
+
+PS D:\Github\skillsESIRepo> git --help branch
+PS D:\Github\skillsESIRepo> git branch --list
+PS D:\Github\skillsESIRepo> git config --global user.name "Bineet k Dungdung" 
+PS D:\Github\skillsESIRepo> git config --global user.email "Bineet.dungdung@gmail.com"
+PS D:\Github\skillsESIRepo> git config --list
+
 ____________________________
-@bineetdungdung ➜ /workspaces $ git config --list 
+Initial Commit 
 
-Change Directory 
-_________________
-@bineetdungdung ➜ /workspaces $ cd /workspaces/stack-overflown
-@bineetdungdung ➜ /workspaces/stack-overflown $ 
+After Clone of a Repo in VSCode , Make sure do a modification to your code . Then only the files can be staged 
 
-Initialize a repository 
-This was done on the particular folder 
-_______________________________________
-@bineetdungdung ➜ /workspaces/stack-overflown $ git init
-Initialized empty Git repository in /workspaces/stack-overflown/.git/
-
-Check current git status
-__________________________
-bineetdungdung ➜ /workspaces/stack-overflown (main) $ git status
-On branch main
-
-No commits yet
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-        src/
+PS D:\Github\skillsESIRepo\src> git add .
+PS D:\Github\skillsESIRepo\src> git add index.html
+PS D:\Github\skillsESIRepo\src> git status  
+PS D:\Github\skillsESIRepo\src> git commit -m "Initial Commit"
 
 
-Add index to only all files to be commited from the repository or from the folder 
-_________________________________________________________________________________
-bineetdungdung ➜ /workspaces/stack-overflown (main) $ git add src/*
+If git status shows the wrong files, you can remove them from staging with 
 
-Note : If git status shows the wrong files, you can remove them from staging with git restore --staged <filename>
+PS D:\Github\skillsESIRepo\src> git restore --staged ReadMe.md
 
 
-Check Commit History 
-___________________
-@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git log
 
-@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git log --oneline
-f310945 (HEAD -> main) Start Developer Docs
-a5aa433 start Game documentation
-b807a3f initial Commit
 
-Switch to a Particular commit id or undo a commit 
-________________________________
-@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git checkout b807a3f
-Note: switching to 'b807a3f'.
+____________________________________________
+
+Exploring Git History
+
+PS D:\Github\skillsESIRepo\src> git log 
+PS D:\Github\skillsESIRepo\src> git log --oneline
+
+PS D:\Github\skillsESIRepo\src> git log --graph --oneline
+
+* e3e5491 (HEAD -> main) Validating Restore Staged File
+* 66797fb Start developer docs
+* 2405e2f Start game documentation
+* dc8ac6f Initial Commit
+* 81a44d3 (origin/main, origin/HEAD) Set repository name
+* 30b5bdf Start exercise
+* d0eff9e Initial commit
+
+
+PS D:\Github\skillsESIRepo\src> git checkout d0eff9e
+
+Note: switching to 'd0eff9e'.
 
 You are in 'detached HEAD' state. You can look around, make experimental
 changes and commit them, and you can discard any commits you make in this
@@ -74,38 +104,268 @@ Or undo this operation with:
 
 Turn off this advice by setting config variable advice.detachedHead to false
 
-HEAD is now at b807a3f initial Commit
-Git Hook: Post Checkout
+HEAD is now at d0eff9e Initial commit
 
-+ This is a line that was added
-- This is a line that was removed
+PS D:\Github\skillsESIRepo> git checkout Main        
+Previous HEAD position was d0eff9e Initial commit
+Switched to branch 'Main'
 
-View the difference between your working directory and the last commit.
+• Use git log --help to see all available options for viewing history.
 
-@bineetdungdung ➜ /workspaces/stack-overflown (main) $ git diff src/index.html
+PS D:\Github\skillsESIRepo> git push origin main
+
+info: please complete authentication in your browser...
+Enumerating objects: 23, done.
+Counting objects: 100% (23/23), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (18/18), done.
+Writing objects: 100% (18/18), 1.81 KiB | 232.00 KiB/s, done.
+Total 18 (delta 12), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (12/12), completed with 4 local objects.
+To https://github.com/bineetdungdung/skillsESIRepo.git
+   81a44d3..e3e5491  main -> main
+
+PS D:\Github\skillsESIRepo> git status
+
+On branch Main
+nothing to commit, working tree clean
+
+To validate whether the Local Repository & Remote/Origin Repo are in Sync 
+
+PS D:\Github\skillsESIRepo> git log --oneline --decorate -n 5
+
+e3e5491 (HEAD, origin/main, origin/HEAD, main) Validating Restore Staged File
+66797fb Start developer docs
+2405e2f Start game documentation
+dc8ac6f Initial Commit
+81a44d3 Set repository name
+
+PS D:\Github\skillsESIRepo> git log -1 --pretty=fuller
+
+commit e3e5491fec2c05b33d4e831e454cbcebbf7defa2 (HEAD, origin/main, origin/HEAD, main)
+Author:     Bineet k Dungdung <Bineet.dungdung@gmail.com>
+AuthorDate: Mon Sep 14 19:00:32 2026 +0530
+Commit:     Bineet k Dungdung <Bineet.dungdung@gmail.com>
+CommitDate: Mon Sep 14 19:00:32 2026 +0530
+    Validating Restore Staged File
+
+PS D:\Github\skillsESIRepo> git log -1 --format="%h %ad %cd %s" --date=iso
+
+e3e5491 2026-09-14 19:00:32 +0530 2026-09-14 19:00:32 +0530 Validating Restore Staged File
+
+______________________________________________
+
+Comparing Changes
+
+Note : After Making the changes to a file and before Moving it to staging . Once the file is moved to staging  it wont show any differnce
+
+PS D:\Github\skillsESIRepo> git diff src/index.html            
+
 diff --git a/src/index.html b/src/index.html
-index c89edb8..70992da 100644
+index b2c08a0..67548f8 100644
 --- a/src/index.html
 +++ b/src/index.html
-@@ -17,11 +17,12 @@
-       </div>
+@@ -20,9 +20,10 @@
  
-       <div class="side-panel">
--        <div class="info-section">
--          <h3>Score</h3>
--          <div class="score" id="score">0</div>
--          <div class="status" id="status">Playing...</div>
--        </div>
-+       <div class="info-section">
-+         <h3>Current Score</h3>
-+        <div class="score" id="score">0</div>
+     <div class="side-panel">
+       <div class="info-section">
+-        <h3>Score</h3>
++        <h3>Current Score</h3>
+         <div class="score" id="score">0</div>
+-        <div class="status" id="status">Playing...</div>
 +        <h3>High Score</h3>
 +        <div class="high-score" id="high-score">0</div>
-+     </div>
+       </div>
+ 
+       <div class="info-section">
+
+If you want to see differences After moved to Staging 
+
+PS D:\Github\skillsESIRepo> git diff --staged src/index.html
+
+diff --git a/src/index.html b/src/index.html
+index b2c08a0..67548f8 100644
+--- a/src/index.html
++++ b/src/index.html
+@@ -20,9 +20,10 @@
+ 
+     <div class="side-panel">
+       <div class="info-section">
+-        <h3>Score</h3>
++        <h3>Current Score</h3>
+         <div class="score" id="score">0</div>
+-        <div class="status" id="status">Playing...</div>
++        <h3>High Score</h3>
++        <div class="high-score" id="high-score">0</div>
+       </div>
+ 
+       <div class="info-section">
 
 
+Issue 
 
+PS D:\Github\skillsESIRepo> git commit -m "Make null pointer pattern easier to complete"                                  
+[Main 4e9358a] Make null pointer pattern easier to complete
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+PS D:\Github\skillsESIRepo> git restore --staged src/patterns.js           ##Could be the issue , Tried to restore the file after commit ##       
+       
+PS D:\Github\skillsESIRepo> git status                                                  
+On branch Main     ## Local repo was supposed to be main but this looks like a new Branch as Main
+nothing to commit, working tree clean    
 
+PS D:\Github\skillsESIRepo> git push Origin Main
+fatal: 'Origin' does not appear to be a git repository    #This caused the Push to Origin fail#
+fatal: Could not read from remote repository.
 
+Please make sure you have the correct access rights
+and the repository exists.
+PS D:\Github\skillsESIRepo> git push origin main                                        
+fatal: main cannot be resolved to branch
+PS D:\Github\skillsESIRepo> git branch -a
+* Main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+PS D:\Github\skillsESIRepo> git status
+On branch Main
+nothing to commit, working tree clean
+PS D:\Github\skillsESIRepo> git switch --track origin/main
+fatal: a branch named 'main' already exists
+PS D:\Github\skillsESIRepo> git switch -c main
+fatal: a branch named 'main' already exists
+PS D:\Github\skillsESIRepo>  git log --graph --oneline
+* 4e9358a (HEAD -> Main) Make null pointer pattern easier to complete
+* 63297e4 Add element for showing high score
+* e3e5491 (origin/main, origin/HEAD) Validating Restore Staged File
+* 66797fb Start developer docs
+* 2405e2f Start game documentation
+* dc8ac6f Initial Commit
+* 81a44d3 Set repository name
+* 30b5bdf Start exercise
+* d0eff9e Initial commit
+PS D:\Github\skillsESIRepo> git checkout e3e5491
+Note: switching to 'e3e5491'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at e3e5491 Validating Restore Staged File
+PS D:\Github\skillsESIRepo> git status                    
+HEAD detached at e3e5491
+nothing to commit, working tree clean
+PS D:\Github\skillsESIRepo> git checkout main   
+Previous HEAD position was e3e5491 Validating Restore Staged File
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+PS D:\Github\skillsESIRepo> git status
+On branch main
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+PS D:\Github\skillsESIRepo> git push Origin main
+fatal: 'Origin' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+PS D:\Github\skillsESIRepo> git push origin main
+fatal: main cannot be resolved to branch
+PS D:\Github\skillsESIRepo> git switch main
+Already on 'main'
+Your branch is ahead of 'origin/main' by 2 commits.
+  (use "git push" to publish your local commits)
+PS D:\Github\skillsESIRepo> git push origin main
+fatal: main cannot be resolved to branch
+PS D:\Github\skillsESIRepo> git log --oneline --decorate --graph --max-count=10
+* 4e9358a (HEAD, Main) Make null pointer pattern easier to complete
+* 63297e4 Add element for showing high score
+* e3e5491 (origin/main, origin/HEAD) Validating Restore Staged File
+* 66797fb Start developer docs
+* 2405e2f Start game documentation
+* dc8ac6f Initial Commit
+* 81a44d3 Set repository name
+* 30b5bdf Start exercise
+* d0eff9e Initial commit
+PS D:\Github\skillsESIRepo> git branch -m Main main
+fatal: a branch named 'main' already exists
+PS D:\Github\skillsESIRepo> git branch -a
+  Main
+  remotes/origin/HEAD -> origin/main
+  remotes/origin/main
+PS D:\Github\skillsESIRepo> git switch Main
+Switched to branch 'Main'
+PS D:\Github\skillsESIRepo> git branch -M main
+PS D:\Github\skillsESIRepo> git push -u origin main
+Enumerating objects: 12, done.
+Counting objects: 100% (12/12), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (8/8), done.
+Writing objects: 100% (8/8), 881 bytes | 293.00 KiB/s, done.
+Total 8 (delta 5), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (5/5), completed with 3 local objects.
+To https://github.com/bineetdungdung/skillsESIRepo.git
+   e3e5491..4e9358a  main -> main
+branch 'main' set up to track 'origin/main'.
+
+Copilot analysis 
+
+Correct solution
+Since your remote branch is origin/main, and your local branch is Main, the simplest fix is to rename your local branch to main if you want to match the repo convention.
+But in this repo, there is already a remote branch named main, so the local rename should be:
+git switch Main
+git branch -M main
+This will rename the current local branch Main to main.
+Then push:
+git push -u origin main
+
+Why -M is the right command
+git branch -M main means:
+	• rename the current branch to main
+	• force the rename if necessary
+This is safer than git branch -m when the branch is already close to the intended name.
+
+If you want the shortest fix
+Run:
+git switch Main
+git branch -M main
+git push -u origin main
+
+That will align your local branch with the remote branch and publish your commits.
+The root issue is simply a naming mismatch: local Main vs remote main. Your repo is otherwise fine.
+
+__________________________________________________
+
+Working with Branches
+
+ 
+git branch [--color[=<when>] | --no-color] [--show-current]
+	   [-v [--abbrev=<n> | --no-abbrev]]
+	   [--column[=<options>] | --no-column] [--sort=<key>]
+	   [--merged [<commit>]] [--no-merged [<commit>]]
+	   [--contains [<commit>]] [--no-contains [<commit>]]
+	   [--points-at <object>] [--format=<format>]
+	   [(-r|--remotes) | (-a|--all)]
+	   [--list] [<pattern>…​]
+git branch [--track[=(direct|inherit)] | --no-track] [-f]
+	   [--recurse-submodules] <branch-name> [<start-point>]
+git branch (--set-upstream-to=<upstream>|-u <upstream>) [<branch-name>]
+git branch --unset-upstream [<branch-name>]
+git branch (-m|-M) [<old-branch>] <new-branch>
+git branch (-c|-C) [<old-branch>] <new-branch>
+git branch (-d|-D) [-r] <branch-name>…​
+git branch --edit-description [<branch-name>]
 
 
